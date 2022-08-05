@@ -3,8 +3,6 @@
 #define JM_XORSTR_DISABLE_AVX_INTRINSICS //OLD CPU SUPPORT
 
 #define CPPHTTPLIB_OPENSSL_SUPPORT
-
-#include "httplib.h"
 #include <Windows.h>
 #include <vector>
 #include <Detours.h>

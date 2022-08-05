@@ -592,9 +592,9 @@ static duk_ret_t duk_webclient(duk_context* ctx)
 
 	if (!host.empty())
 	{
-		static httplib::SSLClient cli(host);
+		//s//tatic httplib::SSLClient cli(host);
 
-		duk_push_pointer(ctx, &cli);
+		//duk_push_pointer(ctx, &cli);
 	}
 	else
 	{
@@ -608,6 +608,7 @@ static duk_ret_t duk_webclient(duk_context* ctx)
 //MISSING: A function to add headers, bodys etc etc.
 
 //String UWebClientGet(Client, "Path");
+/*
 static duk_ret_t duk_webclientget(duk_context* ctx)
 {
 	int ArgsLength = duk_get_top(ctx);
@@ -633,7 +634,7 @@ static duk_ret_t duk_webclientget(duk_context* ctx)
 		{
 			if (res->status == 200)
 			{
-				duk_push_string(ctx, res->body.c_str());
+				//duk_push_string(ctx, res->body.c_str());
 			}
 		}
 	}
@@ -645,8 +646,10 @@ static duk_ret_t duk_webclientget(duk_context* ctx)
 
 	return 1; //one return value
 }
+*/
 
 //String UWebClientPost(Client, "Path", "Body", "Content-Type");
+/*
 static duk_ret_t duk_webclientpost(duk_context* ctx)
 {
 	int ArgsLength = duk_get_top(ctx);
@@ -656,7 +659,7 @@ static duk_ret_t duk_webclientpost(duk_context* ctx)
 		return DUK_RET_TYPE_ERROR;
 	}
 
-	auto cli = (httplib::SSLClient*)duk_get_pointer(ctx, 0);
+	auto cli = //(httplib::SSLClient*)duk_get_pointer(ctx, 0);
 
 	if (!cli || Util::IsBadReadPtr(cli))
 	{
@@ -674,7 +677,7 @@ static duk_ret_t duk_webclientpost(duk_context* ctx)
 		{
 			if (res->status == 200)
 			{
-				duk_push_string(ctx, res->body.c_str());
+				//duk_push_string(ctx, res->body.c_str());
 			}
 		}
 	}
@@ -686,6 +689,7 @@ static duk_ret_t duk_webclientpost(duk_context* ctx)
 
 	return 1; //one return value
 }
+*/
 
 /*
 //void UTriggerWin();

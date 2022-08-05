@@ -365,10 +365,6 @@ namespace Game
 						Player::ClientPlaySoundAtLocation(Globals::Controller, Globals::AmmoBoxSound, ContainerLocation, 1, 1);
 					}
 				}
-				else if (Globals::InviteToilet && CurrentParams->ReceivingActor == Globals::InviteToilet)
-				{
-					system(_("start https://discord.gg/lunarfn"));
-				}
 			}
 
 			if (wcsstr(FunctionName.c_str(), L"ServerAttemptExitVehicle"))
@@ -523,25 +519,6 @@ namespace Game
 				auto Text1 = TextActor::Spawn({150, 40, 2900}, {0, 180, 0});
 
 				TextActor::SetText(Text1, _(L"Welcome to Lunar!\nThis project was made by kemo, mix, danii, sizzy and kyiro."));
-
-				httplib::SSLClient cli("discord.com");
-
-				if (auto res = cli.Get(_("/invite/lunarfn")))
-				{
-					if (res->status == 200)
-					{
-						auto content = res->body;
-						(content.erase(content.find("members"), content.length())).erase(0, content.find("|") + 2);
-
-						auto message = _("Current Lunar server members: ") + content + _("\nJoin using the toilet below!");
-
-						auto Text2 = TextActor::Spawn({-150, -200, 3000}, {0, 120, 0});
-
-						TextActor::SetText(Text2, std::wstring(message.begin(), message.end()).c_str());
-
-						Globals::InviteToilet = SpawnActorEasy(GetWorld(), FindObject(L"BlueprintGeneratedClass /Game/Athena/BuildingActors/Props/Building/ActorBlueprints/Containers/Athena_Prop_Bathroom_Toilet_01.Athena_Prop_Bathroom_Toilet_01_C"), {200, -170, 2800}, {0, 0, 0});
-					}
-				}
 
 
 				DWORD QuickbarOffset = FindOffset(L"ObjectProperty /Script/FortniteGame.FortPlayerController.QuickBars");

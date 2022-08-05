@@ -95,11 +95,11 @@ namespace UScript
 		duk_push_c_function(ctx, duk_webclient, DUK_VARARGS); //DOC
 		duk_put_global_string(ctx, "UWebClient");
 
-		duk_push_c_function(ctx, duk_webclientget, DUK_VARARGS);//DOC
-		duk_put_global_string(ctx, "UWebClientGet");
+		//duk_push_c_function(ctx, duk_webclientget, DUK_VARARGS);//DOC
+		//duk_put_global_string(ctx, "UWebClientGet");
 
-		duk_push_c_function(ctx, duk_webclientpost, DUK_VARARGS);//DOC
-		duk_put_global_string(ctx, "UWebClientPost");
+		///duk_push_c_function(ctx, duk_webclientpost, DUK_VARARGS);//DOC
+		//duk_put_global_string(ctx, "UWebClientPost");
 
 		duk_push_c_function(ctx, duk_spawnbot, DUK_VARARGS); //DOC
 		duk_put_global_string(ctx, "USpawnBot");
